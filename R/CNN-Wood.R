@@ -21,5 +21,32 @@
 library(keras)
 library(ggplot2)
 
-# 3: Load dataset -----------------------------------------------------------------------------------------------------------------------------
-data <- ...
+# 3: Load a single image ----------------------------------------------------------------------------------------------------------------------
+img <- image_load("dataset/Wood-Recognition/5-Bagassa guianensis/0526.jpg",
+           grayscale = F, target_size = NULL)      # Load image
+
+img <- img %>% image_to_array()                    # Convert to array
+# dim(img)                                         # Array dimension (height,width,channels)
+# length(img)                                      # Number of pixels (1530*2068*3)
+
+# Channels
+channel1 <- img[,,1]
+channel2 <- img[,,2]
+channel3 <- img[,,3]
+
+# image_load("dataset/Wood-Recognition/5-Bagassa guianensis/0526.jpg",
+#            grayscale = F, target_size = NULL) %>%
+#   image_to_array() %>%
+#   array_reshape(dim = dim(.)) %>%
+#   as.raster(max = 255) %>%
+#   plot()
+
+# 4: Load dataset -----------------------------------------------------------------------------------------------------------------------------
+list_images <- list.files("dataset/Wood-Recognition",
+                   pattern = ".jpg", recursive = TRUE,
+                   full.names = TRUE)             # list of .jpg images in directory
+# length(list_images)
+
+
+
+
