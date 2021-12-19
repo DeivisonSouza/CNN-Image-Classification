@@ -1,10 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# CNN-Image-Classification (Under development)
+# Convolutional Neural Network - Image Classification (Under development)
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-Este é um repositório de aprendizado de Redes Neurais Convulacionais (Em
-construção)…(Início 19/12/2021)
+Este repositório é apenas para aprendizado de Redes Neurais
+Convulacionais na classificação de imagens usando linguagem R.
