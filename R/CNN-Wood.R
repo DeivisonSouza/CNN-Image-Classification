@@ -42,11 +42,24 @@ channel3 <- img[,,3]
 #   plot()
 
 # 4: Load dataset -----------------------------------------------------------------------------------------------------------------------------
-list_images <- list.files("dataset/Wood-Recognition",
-                   pattern = ".jpg", recursive = TRUE,
-                   full.names = TRUE)             # list of .jpg images in directory
-# length(list_images)
+path <- "dataset/Wood-Recognition"
+img_width <- 2080
+img_height <- 1540
 
+image_generator <- image_data_generator(rescale=1/255, validation_split=0.2)
 
+trainingSet <- flow_images_from_directory(
+  directory = path,
+  generator = image_generator,
+  target_size = c(img_width, img_height),
+  subset = "training",
+  class_mode='categorical'
+)
 
-
+testSet <- flow_images_from_directory(
+  directory = path,
+  generator = image_generator,
+  target_size = c(img_width, img_height),
+  subset = "validation",
+  class_mode='categorical'
+)
